@@ -82,7 +82,7 @@ class Login extends Component {
                         </Typography>
                     </Toolbar>
                 </AppBar>
-                <Paper elevation={1} style={{marginLeft:"auto", marginRight:"auto", marginTop:20, padding:20, maxWidth:600}}>
+                <Paper elevation={1} style={{position:"absolute", top:"50%", transform:"translateY(-50%)", left:0, right:0, margin:"auto", padding:20, maxWidth:600}}>
                 <TextField
                     id="outlined-email-input"
                     label="Email"
