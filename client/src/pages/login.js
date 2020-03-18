@@ -5,6 +5,9 @@ import {Paper, Button, Snackbar, IconButton, Typography, Toolbar, TextField, App
 import { Redirect } from 'react-router';
 import CssBaseline from "@material-ui/core/CssBaseline/CssBaseline";
 import ParticleComponent from '../components/particles';
+import loginIcon from '../assets/2.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLock, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 class Login extends Component {
     state = {
@@ -82,29 +85,43 @@ class Login extends Component {
                         </Typography>
                     </Toolbar>
                 </AppBar>
-                <Paper elevation={1} style={{position:"absolute", top:"50%", transform:"translateY(-50%)", left:0, right:0, margin:"auto", padding:20, maxWidth:600}}>
-                <TextField
-                    id="outlined-email-input"
-                    label="Email"
-                    type="email"
-                    name="email"
-                    autoComplete="email"
-                    fullWidth
-                    margin="normal"
-                    variant="outlined"
-                    onChange={e=>this.setState({email:e.target.value})}/>
-                <TextField
-                    id="outlined-password-input"
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                    fullWidth
-                    margin="normal"
-                    variant="outlined"
-                    onChange={e=>this.setState({password:e.target.value})}/>
+                <Paper elevation={1} style={{backgroundColor: '#ECEDF6', position:"absolute", top:"50%", transform:"translateY(-50%)", left:0, right:0, margin:"auto", padding: '60px 40px', maxWidth:400}}>
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                        <img src={loginIcon} alt='login' height='70px' width='auto'/>
+                    </div>
+                    <div style={{display: 'flex', alignItems:'center'}}>
+                        <FontAwesomeIcon icon={faEnvelope} color='#afafaf'  size='2x' style={{margin: '25px 15px 0 0', padding: '5px'}} />
+                        <TextField
+                        
+                            style={{backgroundColor: '#ECEDF6'}}
+                            id="outlined-email-input"
+                            label="Email"
+                            type="email"
+                            name="email"
+                            autoComplete="email"
+                            fullWidth
+                            margin="normal"
+                            variant="standard"
+                            onChange={e=>this.setState({email:e.target.value})}/>
+                    </div>
+                    <div style={{display: 'flex', alignItems:'center'}}>
+                    <FontAwesomeIcon icon={faLock} color='#afafaf' size='2x'  style={{margin: '25px 15px 0 0', padding: '5px'}} />
+                    <TextField 
+                        style={{backgroundColor: '#ECEDF6'}}
+                        id="outlined-password-input"
+                        label="Password"
+                        type="password"
+                        autoComplete="current-password"
+                        fullWidth
+                        margin="normal"
+                        variant="standard"
+                        onChange={e=>this.setState({password:e.target.value})}/>
+                    </div>
                 <br/>
-                <Button style={{marginRight:10}} variant="contained" color="primary" onClick={e=>this.login()}>Login</Button>
-                <Button variant="contained" color="primary" onClick={e=>this.register()}>Register</Button>
+                <div style={{ marginTop: 20, display: 'flex', justifyContent: 'center'}}>
+                    <Button style={{marginRight:10, fontWeight: 600}} variant="outlined"  color="primary" onClick={e=>this.login()}>Login</Button>
+                    <Button style={{fontWeight: 600}} variant="outlined" color="primary" onClick={e=>this.register()}>Register</Button>
+                </div>
                 <Snackbar 
                     open={(this.state.error||this.state.message) ? true:false} 
                     message={this.state.error || this.state.message}
