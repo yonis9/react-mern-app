@@ -15,6 +15,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
+    - name: Use MongoDB
+      uses: supercharge/mongodb-github-action@1.1.0
+
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
